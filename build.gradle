@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'ch.games'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+Properties properties = new Properties()
+
+File propertiesFile = new File('local.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/maebli/jass")
+        credentials {
+            username = properties.gpruser
+            password = properties.gprkey
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'ch.games:jass-library:0.0.3'
+}
+
+test {
+    useJUnitPlatform()
+}
+
