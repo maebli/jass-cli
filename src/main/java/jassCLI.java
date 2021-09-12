@@ -16,7 +16,6 @@ class JassCLI {
 
     public static void main(String[] args){
 
-
         try {
             jass=(Jass) CardGameFactory.make("Jass");
         } catch (JassCardGameDoesNotExistException e) {
@@ -30,9 +29,15 @@ class JassCLI {
 
         JassPlayersBuilder playersBuilder=new JassPlayersBuilder();
 
-        playersBuilder.activateHumanPlayer();
-
+        JassPlayersBuilder.setPlayerNumber(3);
         ArrayList<JassPlayer> players = playersBuilder.build();
+
+        HumanJassPlayer cli = new HumanJassPlayer();
+
+        cli.assignName("cli");
+
+        players.add(cli);
+
         JassTable table = new JassTable(players);
 
         jass.setPlayers(table);
