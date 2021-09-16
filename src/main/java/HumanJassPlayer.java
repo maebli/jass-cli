@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class HumanJassPlayer extends BasicJassPlayer {
 
     Scanner reader = new Scanner(System.in);
+    JassTrick currentTrick;
 
     @Override
     public JassCard playCard(JassTrick trick) {
@@ -42,7 +43,14 @@ public class HumanJassPlayer extends BasicJassPlayer {
     public int chooseGameMode() {
 
         System.out.println("Choose the mode of play");
-        System.out.println("OBEN=0, UNTEN=1,SCHELLEN TRUMPF=2,SCHILTEN_TRUMPF=3,EICHEL_TRUMPF=4, ROSEN_TRUMPF=5");
+        System.out.println(getHand());
+        System.out.println("⬆️  Oben = 0\n" +
+                "⬇️  Unten = 1 \n" +
+                "\uD83D\uDD14  Schellen Trumpf = 2\n" +
+                "\uD83D\uDEE1️  Schilten Trumpf = 3\n" +
+                "\uD83C\uDF30  Eichel Trumpf = 4\n" +
+                "\uD83C\uDF39  Rosen Trumpf = 5\n");
+
 
         int n = reader.nextInt();
 
