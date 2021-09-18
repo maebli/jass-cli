@@ -1,4 +1,6 @@
+
 import ch.game.jass.JassCard;
+import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
 import ch.game.jass.exception.JassCardNotInSetException;
 import ch.game.jass.player.BasicJassPlayer;
@@ -11,7 +13,6 @@ import java.util.Scanner;
 public class HumanJassPlayer extends BasicJassPlayer {
 
     Scanner reader = new Scanner(System.in);
-    JassTrick currentTrick;
 
     @Override
     public JassCard playCard(JassTrick trick) {
@@ -40,7 +41,7 @@ public class HumanJassPlayer extends BasicJassPlayer {
     }
 
     @Override
-    public int chooseGameMode() {
+    public JassTable.GameMode chooseGameMode() {
 
         System.out.println("Choose the mode of play");
         System.out.println(getHand());
@@ -52,8 +53,7 @@ public class HumanJassPlayer extends BasicJassPlayer {
                 "\uD83C\uDF39  Rosen Trumpf = 5\n");
 
 
-        int n = reader.nextInt();
-
+        JassTable.GameMode n = JassTable.GameMode.values()[reader.nextInt()];
         return n;
     }
 
