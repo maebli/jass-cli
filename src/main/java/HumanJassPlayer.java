@@ -5,6 +5,7 @@ import ch.game.jass.JassTrick;
 import ch.game.jass.exception.JassCardNotInSetException;
 import ch.game.jass.player.BasicJassPlayer;
 import ch.game.jass.player.JassHand;
+import ch.game.jass.player.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,4 +66,12 @@ public class HumanJassPlayer extends BasicJassPlayer {
     }
 
 
+    @Override
+    public void reactToNewCardInTrick(JassCard card, Player player) {
+        System.out.println("Jass card "+card+" was played by "+player.getName());
+    }
+
+    @Override
+    public void reactToEndOfGame() {
+    }
 }

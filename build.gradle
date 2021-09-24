@@ -15,7 +15,9 @@ propertiesFile.withInputStream {
     properties.load(it)
 }
 
+
 repositories {
+
     mavenCentral()
     maven {
         url = uri("https://maven.pkg.github.com/maebli/jass")
@@ -29,7 +31,7 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    implementation 'ch.games:jass-library:0.0.8'
+    implementation 'ch.games:jass-library:0.0.13'
 }
 
 test {
